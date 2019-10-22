@@ -1,0 +1,40 @@
+% TU Delft Beamer template
+% Author: Chiel Bruin
+% Delft University of Technology
+% March 2019
+% Version 3.0
+% Based on original version 2.0 of Maarten Abbink
+
+\mode<presentation>
+
+\setbeamercolor{date in head/foot}{parent=normal text}
+\setbeamercolor{section number projected}{fg=}
+
+\setbeamersize{text margin left=3.25cm}
+\setbeamersize{text margin right=0.75cm}
+
+\defbeamertemplate*{sidebar left}{}{
+	\begin{beamercolorbox}[wd=2.5cm,ht=9cm]{decoration}
+    \hspace*{0.15cm}
+    \includegraphics[width=2.2cm]{images/TUDelft-logo-white.eps}
+	\end{beamercolorbox}
+}
+
+\defbeamertemplate*{no footline}{}{}
+
+\defbeamertemplate*{footline}{}{
+	\leavevmode%
+	\hbox{%
+		\begin{beamercolorbox}[leftskip=3.5cm,wd=\paperwidth,ht=2.25ex,dp=1ex,ignorebg]{date in head/foot}%
+            \inserttitle \hspace*{.2em} - \hspace*{.2em} \insertauthor \hfill{}
+			\usebeamerfont{date in head/foot}\insertshortdate{}\hspace*{2em}
+			\insertframenumber{} / \inserttotalframenumber\hspace*{2ex}
+		\end{beamercolorbox}
+	}%
+}
+
+% this normally contains the navigation links
+\defbeamertemplate*{sidebar right}{}{}
+
+\mode
+<all>

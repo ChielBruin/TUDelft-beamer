@@ -1,0 +1,121 @@
+% TU Delft Beamer template
+% Author: Chiel Bruin
+% Delft University of Technology
+% March 2019
+% Version 3.0
+% Based on original version 2.0 of Maarten Abbink
+
+\documentclass[aspectratio=169, bigger, t]{beamer}
+\usepackage[english]{babel}
+\usepackage{calc}
+\usepackage{xfp}
+\usepackage{multicol}\columnseprule 0.4pt\raggedcolumns
+
+\usepackage{tikz}
+  \usetikzlibrary{mindmap,trees}
+
+\usepackage{minted}
+\usepackage{listings}
+
+\usepackage[absolute,overlay]{textpos}
+\mode<presentation>
+\usetheme{tud}
+\include{commands}
+
+\title[TU Delft Beamer template]{TU Delft Beamer template}
+\institute[TU Delft]{Some interesting subtitle\hspace{2cm}}
+\author{John Doe}
+\date{\today}
+
+\begin{document}
+
+  \begin{titleframe}{images/background-titlepage.jpg}
+    \titlepage
+  \end{titleframe}
+
+  {
+    \nofootline
+    \begin{frame}\frametitle{\titleTOC}
+    	\tableofcontents
+    \end{frame}
+  }
+
+  \section{Bullet points}
+    \begin{frame}\frametitle{Some bullet points}
+      \begin{itemize}
+        \item Lorem ipsum dolor sit amet, consectetur adipiscing elit
+        \item Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua
+        \item Ut enim ad minim veniam
+        \item quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat
+      \end{itemize}
+    \end{frame}
+
+
+    \subsection{Multiple columns}
+      \begin{frame}\frametitle{Two columns}
+        \begin{columns}[onlytextwidth,T]
+          \column{45mm}
+          \begin{itemize}
+            \item Lorem ipsum dolor sit amet
+            \item Consectetur adipiscing elit
+            \item Sed do eiusmod tempor incididunt
+          \end{itemize}
+
+          \column{\dimexpr\linewidth-45mm-5mm}
+          \begin{itemize}
+            \item ut labore et dolore magna aliqua
+            \item Ut enim ad minim veniam
+            \item quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat
+          \end{itemize}
+        \end{columns}
+      \end{frame}
+
+      \begin{frame}\frametitle{Two columns (Cont.)}
+        \begin{multicols*}{2}
+          \begin{itemize}
+            \item Lorem ipsum dolor sit amet
+            \item Consectetur adipiscing elit
+            \item Sed do eiusmod tempor incididunt
+            \item ut labore et dolore magna aliqua
+            \item Ut enim ad minim veniam
+            \item quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat
+          \end{itemize}
+        \end{multicols*}
+      \end{frame}
+
+
+  \section{Other elements}
+    \begin{frame}\frametitle{Code listings}
+      \inputminted{scheme}{code/callcc.scm}
+    \end{frame}
+
+    \begin{frame}\frametitle{Tikz}
+      \centering
+      \resizebox{.6\textwidth}{!}{
+        \begin{tikzpicture}[node distance=2cm]
+          \path[mindmap,concept color=black,text=white]
+          node[concept] {Computer Science}
+          [clockwise from=0]
+          child[concept color=tudOrange] {
+            node[concept] {practical}
+            [clockwise from=90]
+            child { node[concept] {algorithms} }
+            child { node[concept] {data structures} }
+            child { node[concept] {pro\-gramming languages} }
+            child { node[concept] {software engineer\-ing} }
+          }
+          child[concept color=tudCyan] {
+            node[concept] {applied}
+            [clockwise from=-30]
+            child { node[concept] {databases} }
+            child { node[concept] {WWW} }
+          }
+          child[concept color=tudBrightGreen] { node[concept] {technical} }
+          child[concept color=tudDarkBlue] { node[concept] {theoretical} };
+        \end{tikzpicture}
+      }
+      \end{frame}
+
+  \againtitleframe{titlepage}{images/background-titlepage.jpg}
+
+\end{document}

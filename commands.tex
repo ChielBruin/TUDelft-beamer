@@ -1,0 +1,36 @@
+% TU Delft Beamer template
+% Author: Chiel Bruin
+% Delft University of Technology
+% March 2019
+% Version 3.0
+% Based on original version 2.0 of Maarten Abbink
+
+% Define the title of each inserted pre-subsection frame
+\newcommand*\titleSubsec{Next Subsection}
+% Define the title of the "Table of Contents" frame
+\newcommand*\titleTOC{Outline}
+
+% define a symbol which can be removed if you don't need it
+\newcommand{\field}[1]{\mathbb{#1}}
+\newcommand{\Zset}{\field{Z}}
+
+% Create a title frame with the given background image.
+% Optionally accepts a label for repeated use of the frame.
+\newenvironment{titleframe}[1]
+    {
+      \usebackgroundtemplate{\includegraphics[width=\paperwidth,height=\paperheight]{#1}}%
+      \setbeamertemplate{footline}{\usebeamertemplate*{no footline}}
+      \begin{frame}[label=titlepage]
+    }
+    {
+      \end{frame}
+    }
+
+% Repeat a frame created using the titleframe environment
+\newcommand{\againtitleframe}[2]{
+  \usebackgroundtemplate{\includegraphics[width=\paperwidth,height=\paperheight]{#2}}%
+  \setbeamertemplate{footline}{\usebeamertemplate*{no footline}}
+  \againframe{#1}
+}
+
+\newcommand{\nofootline}{\setbeamertemplate{footline}{\usebeamertemplate*{no footline}}}

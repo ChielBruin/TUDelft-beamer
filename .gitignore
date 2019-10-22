@@ -1,0 +1,11 @@
+_minted-presentation/
+
+*.blg
+*.nav
+*.log
+*.aux
+*.toc
+*.bbl
+*.gz
+*.snm
+*.out
